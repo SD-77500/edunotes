@@ -669,6 +669,249 @@
 
         .password-error.show { display: block; }
 
+        .whatsapp-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.95) 0%, rgba(18, 140, 126, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            z-index: 10000;
+            padding: 2rem;
+        }
+
+        .whatsapp-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalFade 0.4s ease;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .whatsapp-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 3.5rem 3rem;
+            border-radius: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            animation: popUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes popUp {
+            from {
+                transform: scale(0.8) translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .whatsapp-icon {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 10px 20px rgba(37, 211, 102, 0.3));
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        .whatsapp-title {
+            font-size: 2.3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-subtitle {
+            color: #555;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .whatsapp-benefits {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            box-shadow: inset 0 2px 10px rgba(37, 211, 102, 0.1);
+            border: 2px solid rgba(37, 211, 102, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-item {
+            padding: 1rem;
+            color: #065f46;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            border-left: 4px solid #25D366;
+            transition: all 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .whatsapp-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 1.5rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-whatsapp:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5), 0 0 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .whatsapp-logo {
+            font-size: 1.8rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .btn-later {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            color: #6b7280;
+            padding: 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-later:hover {
+            background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            border-color: #9ca3af;
+            color: #374151;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-note {
+            color: #dc2626;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 1rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 12px;
+            border: 2px dashed #dc2626;
+            position: relative;
+            z-index: 1;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .content-blur {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+        }
+
         .no-notes {
             background: white;
             padding: 4rem 2rem;
@@ -756,7 +999,7 @@
     <div class="success-message" id="successMessage"></div>
 
     <div class="welcome-banner">
-        <h2>🎓 Welcome to R.I.H.S College Student Portal 🎓</h2>
+        <h2>🎓 Welcome to R.I.H.S College Student🎓</h2>
         <p>Your Gateway to Quality Education Resources</p>
     </div>
 
@@ -1030,9 +1273,12 @@
         let userRole = 'student';
         const DEVELOPER_PASSWORD = 'santanu@123456789';
         const ROLE_KEY = 'edunotes_user_role';
+        const WHATSAPP_JOIN_KEY = 'edunotes_whatsapp_joined';
+        const WHATSAPP_GROUP_LINK = 'https://chat.whatsapp.com/YOUR_GROUP_INVITE_LINK'; // Replace with actual link
         
         let notes = [];
         let aboutData = { photoUrl: '', aboutText: '', helpers: '' };
+        let hasJoinedWhatsApp = false;
 
         const subjectsByStream = {
             science: ['Botany (Hr)', 'Chemistry (Hr)', 'Mathematics (Hr)', 'Physics (Hr)', 'Zoology (Hr)'],
@@ -1161,9 +1407,65 @@
             try {
                 const stored = localStorage.getItem(ROLE_KEY);
                 if (stored) userRole = stored;
+                
+                // Check if user has joined WhatsApp
+                const whatsappJoined = localStorage.getItem(WHATSAPP_JOIN_KEY);
+                hasJoinedWhatsApp = whatsappJoined === 'true';
             } catch (error) {
                 console.error('Error loading role:', error);
             }
+        }
+
+        function saveWhatsAppJoined() {
+            try {
+                localStorage.setItem(WHATSAPP_JOIN_KEY, 'true');
+                hasJoinedWhatsApp = true;
+            } catch (error) {
+                console.error('Error saving WhatsApp status:', error);
+            }
+        }
+
+        function showWhatsAppModal() {
+            if (!hasJoinedWhatsApp && userRole !== 'developer') {
+                const modal = document.getElementById('whatsappModal');
+                const container = document.querySelector('.container');
+                const header = document.querySelector('.header');
+                const searchBar = document.querySelector('.search-bar');
+                
+                modal.classList.add('active');
+                if (container) container.classList.add('content-blur');
+                if (header) header.classList.add('content-blur');
+                if (searchBar) searchBar.classList.add('content-blur');
+            }
+        }
+
+        function hideWhatsAppModal() {
+            const modal = document.getElementById('whatsappModal');
+            const container = document.querySelector('.container');
+            const header = document.querySelector('.header');
+            const searchBar = document.querySelector('.search-bar');
+            
+            modal.classList.remove('active');
+            if (container) container.classList.remove('content-blur');
+            if (header) header.classList.remove('content-blur');
+            if (searchBar) searchBar.classList.remove('content-blur');
+        }
+
+        function handleJoinWhatsApp() {
+            saveWhatsAppJoined();
+            hideWhatsAppModal();
+            showMessage('✅ Welcome! Thank you for joining our WhatsApp community!', 4000);
+        }
+
+        function handleJoinLater() {
+            // Show reminder after 2 minutes if they choose "later"
+            hideWhatsAppModal();
+            showMessage('⏰ Please join WhatsApp group for full access to features', 5000);
+            setTimeout(() => {
+                if (!hasJoinedWhatsApp) {
+                    showWhatsAppModal();
+                }
+            }, 120000); // Show again after 2 minutes
         }
 
         function saveUserRole() {
@@ -1640,6 +1942,11 @@
             
             await initializeData();
             
+            // Show WhatsApp modal after content loads
+            setTimeout(() => {
+                showWhatsAppModal();
+            }, 1000);
+            
             // Event Listeners
             document.getElementById('roleToggleBtn').addEventListener('click', handleRoleToggle);
             document.getElementById('passwordForm').addEventListener('submit', checkPassword);
@@ -1659,6 +1966,10 @@
             document.getElementById('yearFilter').addEventListener('change', filterNotes);
             document.getElementById('noteStream').addEventListener('change', updateSubjectOptions);
             document.getElementById('photoUpload').addEventListener('change', handlePhotoUpload);
+            
+            // WhatsApp modal event listeners
+            document.getElementById('joinWhatsappBtn').addEventListener('click', handleJoinWhatsApp);
+            document.getElementById('joinLaterBtn').addEventListener('click', handleJoinLater);
         });
     </script>
 </body>
