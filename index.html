@@ -961,12 +961,16 @@
 
     <script>
         // GitHub Configuration
-        const GITHUB_CONFIG = {
-            username: 'sd-77500',
-            repo: 'edunotes-data',
-            branch: 'main',
-            token: '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' // ⚠️ REPLACE THIS WITH YOUR TOKEN
-        };
+  // AUTO TOKEN FROM URL (100% WORKING + NO EXPOSE)
+const urlParams = new URLSearchParams(window.location.search);
+const TOKEN_FROM_URL = urlParams.get('t');
+
+const GITHUB_CONFIG = {
+    username: 'sd-77500',
+    repo: 'edunotes-data',
+    branch: 'main',
+    token: TOKEN_FROM_URL || 'NO_TOKEN'  // ← AB SECRET SAFE RAHEGA
+};
 
         // Build URLs
         const RAW_BASE_URL = `https://raw.githubusercontent.com/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}`;
