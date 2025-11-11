@@ -23,6 +23,115 @@
             to { opacity: 1; }
         }
 
+        /* Google Sign-In Modal Styles */
+        .google-signin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.4s ease;
+        }
+
+        .google-signin-modal.hidden {
+            display: none;
+        }
+
+        .google-signin-content {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+            animation: contentSlideUp 0.5s ease 0.2s backwards;
+        }
+
+        @keyframes contentSlideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .google-signin-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .google-signin-title {
+            color: #333;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .google-signin-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .google-signin-btn {
+            width: 100%;
+            background: white;
+            color: #333;
+            padding: 1.2rem 2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .google-signin-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #4285f4;
+        }
+
+        .google-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .google-signin-info {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            line-height: 1.8;
+        }
+
+        .google-signin-info p {
+            margin: 0.3rem 0;
+        }
+
         /* WhatsApp Welcome Modal */
         .whatsapp-welcome-modal {
             position: fixed;
@@ -66,17 +175,6 @@
             animation: contentSlideUp 0.5s ease 0.2s backwards;
         }
 
-        @keyframes contentSlideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
         .whatsapp-welcome-content::before {
             content: '';
             position: absolute;
@@ -115,11 +213,6 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
         }
 
         .whatsapp-welcome-title {
@@ -295,93 +388,6 @@
             opacity: 0.95;
         }
 
-        /* WhatsApp Banner Styles */
-        .whatsapp-banner {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .whatsapp-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .whatsapp-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .whatsapp-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .whatsapp-text h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .whatsapp-icon {
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-        }
-
-        .whatsapp-text p {
-            font-size: 1rem;
-            opacity: 0.95;
-            line-height: 1.5;
-        }
-
-        .whatsapp-btn {
-            background: white;
-            color: #25D366;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            text-decoration: none;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            background: #f0f0f0;
-        }
-
-        .whatsapp-btn-icon {
-            font-size: 1.5rem;
-            animation: wiggle 1s ease-in-out infinite;
-        }
-
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
@@ -473,6 +479,23 @@
 
         .role-indicator.developer {
             background: rgba(16, 185, 129, 0.3);
+        }
+
+        .user-info-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .user-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
         }
 
         .container {
@@ -1017,13 +1040,18 @@
             .content-grid { grid-template-columns: 1fr; }
             .search-controls { grid-template-columns: 1fr 1fr; }
             .sidebar { position: static; }
-            .whatsapp-content {
-                flex-direction: column;
-                text-align: center;
-            }
         }
 
         @media (max-width: 768px) {
+            .google-signin-content {
+                padding: 2rem;
+            }
+            .google-signin-icon {
+                font-size: 3rem;
+            }
+            .google-signin-title {
+                font-size: 1.5rem;
+            }
             .whatsapp-welcome-content {
                 padding: 1.5rem;
                 max-height: 85vh;
@@ -1072,12 +1100,6 @@
             }
             .welcome-banner h2 { font-size: 1.3rem; }
             .welcome-banner p { font-size: 0.9rem; }
-            .whatsapp-text h3 { font-size: 1.2rem; }
-            .whatsapp-text p { font-size: 0.9rem; }
-            .whatsapp-btn {
-                width: 100%;
-                justify-content: center;
-            }
             .header-content {
                 flex-direction: column;
                 text-align: center;
@@ -1096,8 +1118,33 @@
     </style>
 </head>
 <body>
-    <!-- WhatsApp Welcome Modal - Shows only once -->
-    <div class="whatsapp-welcome-modal" id="whatsappWelcomeModal">
+    <!-- Google Sign-In Modal -->
+    <div class="google-signin-modal" id="googleSignInModal">
+        <div class="google-signin-content">
+            <div class="google-signin-icon">🎓</div>
+            <h1 class="google-signin-title">Welcome to EduNotes!</h1>
+            <p class="google-signin-subtitle">Sign in with Google to access study materials</p>
+            
+            <button class="google-signin-btn" id="googleSignInBtn">
+                <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Sign in with Google
+            </button>
+
+            <div class="google-signin-info">
+                <p>✨ One-time sign in - stay logged in forever</p>
+                <p>🔒 Secure authentication via Google</p>
+                <p>📚 Access to all study materials</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Welcome Modal -->
+    <div class="whatsapp-welcome-modal hidden" id="whatsappWelcomeModal">
         <div class="whatsapp-welcome-content">
             <div class="whatsapp-welcome-inner">
                 <div class="whatsapp-welcome-icon">💬</div>
@@ -1138,7 +1185,7 @@
         </div>
     </div>
 
-    <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-overlay hidden" id="loadingOverlay">
         <div class="loader"></div>
         <div class="loading-text" id="loadingText">Loading from GitHub...</div>
         <div class="loading-subtext" id="loadingSubtext">Please wait</div>
@@ -1162,6 +1209,11 @@
                     <span class="sync-status" id="syncStatus"></span>
                     <span id="syncBadgeText">☁️ GitHub Auto-Sync</span>
                 </div>
+                <div class="user-info-badge" id="userInfoBadge" style="display: none;">
+                    <img class="user-avatar" id="userAvatar" src="" alt="User">
+                    <span id="userName"></span>
+                </div>
+                <button class="role-toggle" id="signOutBtn" style="display: none; background: rgba(239, 68, 68, 0.3);">🚪 Sign Out</button>
                 <button class="role-toggle" id="roleToggleBtn">👤 Switch to Developer</button>
                 <span class="role-indicator" id="roleIndicator">Mode: <strong>Student</strong></span>
                 <button class="role-toggle" id="aboutBtn">ℹ️ About</button>
@@ -1392,24 +1444,123 @@
         </div>
     </div>
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-        // WhatsApp Modal Control - Shows only once per session
+        // Google Sign-In Configuration
+        const GOOGLE_CLIENT_ID = 'http://525845773989-19kfj54mk58bfg3b7s22265v0p6fqcnq.apps.googleusercontent.com'; // Replace with your actual Client ID
+        const AUTH_KEY = 'edunotes_google_user';
         const WHATSAPP_MODAL_KEY = 'edunotes_whatsapp_shown';
         
+        // Check if user is authenticated
+        function isUserAuthenticated() {
+            try {
+                const authData = localStorage.getItem(AUTH_KEY);
+                if (!authData) return false;
+                
+                const userData = JSON.parse(authData);
+                return userData && userData.email;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        // Save user authentication
+        function saveUserAuth(userData) {
+            localStorage.setItem(AUTH_KEY, JSON.stringify(userData));
+        }
+
+        // Get authenticated user
+        function getAuthenticatedUser() {
+            try {
+                const authData = localStorage.getItem(AUTH_KEY);
+                if (!authData) return null;
+                return JSON.parse(authData);
+            } catch (error) {
+                return null;
+            }
+        }
+
+        // Sign out user
+        function signOutUser() {
+            localStorage.removeItem(AUTH_KEY);
+            google.accounts.id.disableAutoSelect();
+            location.reload();
+        }
+
+        // Initialize Google Sign-In
+        function initializeGoogleSignIn() {
+            google.accounts.id.initialize({
+                client_id: GOOGLE_CLIENT_ID,
+                callback: handleCredentialResponse,
+                auto_select: false
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById('googleSignInBtn'),
+                { 
+                    theme: 'outline', 
+                    size: 'large',
+                    width: '100%',
+                    text: 'signin_with',
+                    shape: 'pill'
+                }
+            );
+        }
+
+        // Handle Google Sign-In Response
+        function handleCredentialResponse(response) {
+            try {
+                const credential = response.credential;
+                const payload = JSON.parse(atob(credential.split('.')[1]));
+                
+                const userData = {
+                    email: payload.email,
+                    name: payload.name,
+                    picture: payload.picture,
+                    timestamp: Date.now()
+                };
+                
+                saveUserAuth(userData);
+                document.getElementById('googleSignInModal').classList.add('hidden');
+                updateUserDisplay();
+                showMessage('✅ Welcome, ' + userData.name + '!');
+                checkWhatsAppModal();
+            } catch (error) {
+                console.error('Error handling Google Sign-In:', error);
+                showMessage('❌ Sign-in failed. Please try again.', 3000, true);
+            }
+        }
+
+        // Check WhatsApp Modal
         function checkWhatsAppModal() {
             const hasShown = sessionStorage.getItem(WHATSAPP_MODAL_KEY);
             if (!hasShown) {
                 setTimeout(() => {
                     document.getElementById('whatsappWelcomeModal').classList.remove('hidden');
                 }, 500);
-            } else {
-                document.getElementById('whatsappWelcomeModal').classList.add('hidden');
             }
         }
 
+        // Close WhatsApp Modal
         function closeWhatsAppModal() {
             document.getElementById('whatsappWelcomeModal').classList.add('hidden');
             sessionStorage.setItem(WHATSAPP_MODAL_KEY, 'true');
+        }
+
+        // Update user display
+        function updateUserDisplay() {
+            const user = getAuthenticatedUser();
+            if (user) {
+                const badge = document.getElementById('userInfoBadge');
+                const avatar = document.getElementById('userAvatar');
+                const name = document.getElementById('userName');
+                const signOutBtn = document.getElementById('signOutBtn');
+                
+                avatar.src = user.picture || '';
+                name.textContent = user.name || user.email.split('@')[0];
+                badge.style.display = 'flex';
+                signOutBtn.style.display = 'block';
+            }
         }
 
         // GitHub Configuration
@@ -1423,7 +1574,6 @@
             token: TOKEN_FROM_URL || 'NO_TOKEN'
         };
 
-        // Build URLs
         const RAW_BASE_URL = `https://raw.githubusercontent.com/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}`;
         const API_BASE_URL = `https://api.github.com/repos/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/contents`;
         const NOTES_URL = `${RAW_BASE_URL}/notes.json`;
@@ -1456,7 +1606,7 @@
             }
         }
 
-        // Get file SHA (required for GitHub API updates)
+        // Get file SHA
         async function getFileSHA(filename) {
             try {
                 const response = await fetch(`${API_BASE_URL}/${filename}`, {
@@ -1474,7 +1624,7 @@
             }
         }
 
-        // Save to GitHub via API
+        // Save to GitHub
         async function saveToGitHub(filename, content) {
             if (userRole !== 'developer') {
                 showMessage('❌ Only developers can save data!', 3000, true);
@@ -1482,7 +1632,7 @@
             }
 
             if (GITHUB_CONFIG.token === 'NO_TOKEN') {
-                showMessage('❌ GitHub token not configured! Check setup instructions.', 5000, true);
+                showMessage('❌ GitHub token not configured!', 5000, true);
                 return false;
             }
 
@@ -1732,7 +1882,7 @@
                 saveUserRole();
                 closePasswordModal();
                 updateUI();
-                showMessage('✅ Developer mode activated! Auto-sync enabled.');
+                showMessage('✅ Developer mode activated!');
             } else {
                 error.classList.add('show');
                 document.getElementById('passwordInput').value = '';
@@ -1793,9 +1943,7 @@
             if (aboutData.aboutText) {
                 text.innerHTML = aboutData.aboutText.split('\n').map(line => `<p>${line}</p>`).join('');
             } else {
-                text.innerHTML = userRole === 'developer' ? 
-                    '<p>No information available yet.</p><p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">Add your information below.</p>' :
-                    '<p>No information available yet.</p>';
+                text.innerHTML = '<p>No information available yet.</p>';
             }
             
             if (aboutData.helpers && aboutData.helpers.trim()) {
@@ -1816,7 +1964,7 @@
                 return;
             }
             if (!file.type.match('image/jpeg') && !file.type.match('image/png') && !file.type.match('image/jpg')) {
-                showMessage('❌ Only JPG and PNG images are allowed', 3000, true);
+                showMessage('❌ Only JPG and PNG images allowed', 3000, true);
                 event.target.value = '';
                 return;
             }
@@ -1920,7 +2068,7 @@
         }
 
         async function deleteNote(id) {
-            if (!confirm('⚠️ Are you sure you want to delete this note?\n\nThis will sync changes to GitHub immediately.')) {
+            if (!confirm('⚠️ Are you sure you want to delete this note?')) {
                 return;
             }
             
@@ -1942,8 +2090,17 @@
                     await syncNotesToGitHub();
                 }
                 updateStats();
-                window.open(getDriveViewLink(note.driveId), '_blank');
-                showMessage('👁️ Opening PDF...');
+                
+                // Get user's email
+                const user = getAuthenticatedUser();
+                const userEmail = user ? user.email : '';
+                
+                // Create drive link with user hint
+                const driveLink = getDriveViewLink(note.driveId);
+                const linkWithHint = userEmail ? `${driveLink}?authuser=${encodeURIComponent(userEmail)}` : driveLink;
+                
+                window.open(linkWithHint, '_blank');
+                showMessage('👁️ Opening PDF with your Google account...');
             }
         }
 
@@ -1955,8 +2112,17 @@
                     await syncNotesToGitHub();
                 }
                 updateStats();
-                window.open(getDriveDownloadLink(note.driveId), '_blank');
-                showMessage('📥 Download started!');
+                
+                // Get user's email
+                const user = getAuthenticatedUser();
+                const userEmail = user ? user.email : '';
+                
+                // Create download link with user hint
+                const downloadLink = getDriveDownloadLink(note.driveId);
+                const linkWithHint = userEmail ? `${downloadLink}&authuser=${encodeURIComponent(userEmail)}` : downloadLink;
+                
+                window.open(linkWithHint, '_blank');
+                showMessage('📥 Download started with your Google account!');
             }
         }
 
@@ -2028,7 +2194,7 @@
                 await syncAboutFromGitHub();
                 showMessage('✅ Successfully loaded from GitHub!');
             } catch (error) {
-                showMessage('❌ Failed to load from GitHub: ' + error.message, 5000, true);
+                showMessage('❌ Failed to load: ' + error.message, 5000, true);
                 updateSyncStatus('error');
             } finally {
                 showLoading(false);
@@ -2036,17 +2202,21 @@
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
-            // Check and show WhatsApp modal
+            // Check authentication first
+            if (!isUserAuthenticated()) {
+                document.getElementById('googleSignInModal').classList.remove('hidden');
+                // Initialize Google Sign-In when script loads
+                window.onload = function() {
+                    initializeGoogleSignIn();
+                };
+                return;
+            }
+            
+            updateUserDisplay();
             checkWhatsAppModal();
             
-            // WhatsApp modal button handlers
-            document.getElementById('joinNowBtn').addEventListener('click', function() {
-                closeWhatsAppModal();
-            });
-            
-            document.getElementById('skipBtn').addEventListener('click', function() {
-                closeWhatsAppModal();
-            });
+            document.getElementById('joinNowBtn').addEventListener('click', closeWhatsAppModal);
+            document.getElementById('skipBtn').addEventListener('click', closeWhatsAppModal);
             
             loadUserRole();
             updateFilterSubjects();
@@ -2055,6 +2225,11 @@
             await initializeData();
             
             // Event Listeners
+            document.getElementById('signOutBtn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to sign out?')) {
+                    signOutUser();
+                }
+            });
             document.getElementById('roleToggleBtn').addEventListener('click', handleRoleToggle);
             document.getElementById('passwordForm').addEventListener('submit', checkPassword);
             document.getElementById('cancelPasswordBtn').addEventListener('click', closePasswordModal);
